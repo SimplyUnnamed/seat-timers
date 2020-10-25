@@ -5,10 +5,12 @@
 
 @push('head')
     <link rel="stylesheet" href="{{asset('web/vendors/timers/css/daterangepicker.css')}}" />
+    <link rel="stylesheet" href="{{asset('web/vendors/timers/css/jquery.autocomplete.css')}}" />
 @endpush
 
 @push('javascript')
     <script src="{{asset('web/vendors/timers/js/daterangepicker.js')}}"></script>
+    <script src="{{asset('web/vendors/timers/js/jquery.autocomplete.js')}}"></script>
 
     <script src="{{asset('web/timers/js/timers.js')}}"></script>
 
@@ -35,9 +37,11 @@
                 <div class="form-group row">
                     <label for="event-system" class="col-form-label col-md-4" >System</label>
                     <div class="col-md-8">
-                        <input type="text" class="form-control" name="system_id" id="event-system"/>
+                        <input type="text" class="form-control" id="event-system-lookup"/>
                     </div>
                 </div>
+
+                <input type="hidden" name="system_id">
 
                 <div class="form-group row">
                     <label for="event-location" class="col-form-label col-md-4" >Location</label>

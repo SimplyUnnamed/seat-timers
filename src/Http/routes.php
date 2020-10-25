@@ -6,6 +6,12 @@ Route::group([
     'prefix' => 'timers'
 ], function () {
 
+    Route::group(['prefix'=>'lookup'], function(){
+
+        Route::get('systems', 'LookupController@systems');
+
+    });
+
     Route::group([
         'middleware' => ['web', 'auth'],
     ], function(){

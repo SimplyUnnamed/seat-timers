@@ -58,3 +58,12 @@ $("#event-datetime").on('change', function(){
     $("#second-timer").val(seconds);
 });
 
+//System Lookup
+$("#event-system-lookup").autocomplete({
+    serviceUrl: '/timers/lookup/systems',
+    onSelect: function(suggestion){
+        $("input[name='system_id']").val(suggestion.data);
+    },
+    minChars:3
+})
+
