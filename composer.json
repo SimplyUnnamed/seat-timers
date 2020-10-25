@@ -1,0 +1,30 @@
+{
+    "name": "simplyunnamed/seat-timers",
+    "description": "Modules to record timers to certain events",
+    "type": "seat-plugin",
+    "license": "GNU GPLv3",
+    "authors": [
+        {
+            "name": "Simply Unnamed",
+            "email": "simply.unnamed@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "SimplyUnnamed\\Seat\\Timers": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SimplyUnnamed\\Seat\\Timers\\SeatTimersServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "eveseat/services": "^3.0",
+        "eveseat/eveapi": "^3.0",
+        "eveseat/web": "^3.0"
+    }
+}
