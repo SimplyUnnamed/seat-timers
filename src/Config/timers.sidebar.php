@@ -1,27 +1,29 @@
 <?php
 
 return [
+
     'seattimers' => [
         'name' => 'Timers',
-        //'permission' => '*',
+        'permission' => 'timers.view',
         'route_segment' => 'timers',
         'icon' => 'fa fa-clock',
         'entries' => [
-            'timers' => [
+            [   //Timers
                 'name' => "Timers",
                 'icon' => 'fa fa-stopwatch',
                 'route_segment' => 'timers',
                 'route' => 'timers.view',
-                //'permissions' => '*'
+                'permission' => 'timers.view'
             ],
-            /*'integrations' => [
-                'name' => 'Integrations',
-                'icon' => 'fa fa-cogs',
-                'route_segment' => 'timers',
-                'route' => 'timers.integrations',
-                //'permissions' => '*',
-            ]*/
+            [    //Timer Types
+                'name' => "Timer Types",
+                'icon' => "fa fa-list",
+                'route_segment' => "timers",
+                "route" => "timertypes.view",
+                'permission' => 'timertypes.view'
+            ],
+
         ]
-    ]
+    ],
 
 ];

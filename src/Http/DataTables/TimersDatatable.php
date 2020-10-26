@@ -23,7 +23,7 @@ class TimersDatatable extends DataTable
                 return view('timers::partials.solarsystem', ['location'=>$row->SolarSystem]);//->render();
             })
             ->editColumn('countdown', function($row){
-                $dt = Carbon::createFromFormat('Y-m-d H:i:s', $row->datetime, 'UTC');
+                $dt = Carbon::createFromFormat('Y-m-d H:i:s', $row->datetime);
                 $now = Carbon::now('UTC');
                 return view('timers::partials.countdown', ['row'=>$row, 'countdown'=>$now->shortAbsoluteDiffForHumans($dt, 6)]);
             })
@@ -42,6 +42,7 @@ class TimersDatatable extends DataTable
 
     public function query(){
         return Timer::with(['SolarSystem', 'Author.main_character'])
+            ->where('datetime', '>', Carbon::now('UTC'))
             ->select('timers.*');
     }
 

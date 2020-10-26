@@ -33,6 +33,7 @@ class SaveTimerRequest extends FormRequest
             'hours'      => 'required_without:datetime',
             'minutes'      => 'required_without:datetime',
             'seconds'      => 'required_without:datetime',
+            'add_another'   => 'nullable',
         ];
     }
 }

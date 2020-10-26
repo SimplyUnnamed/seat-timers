@@ -17,10 +17,25 @@ use SimplyUnnamed\Seat\Timers\Models\TimerTypes;
 class TimersController extends Controller
 {
 
+    /**
+     * Show Datatable view
+     * @param TimersDatatable $datatable
+     * @return mixed
+     */
     public function index(TimersDatatable $datatable){
-        $types = TimerTypes::all();
-        return $datatable->render("timers::timers", compact('types'));
+        $currentTime = Carbon::now('utc');
 
+        return $datatable->render("timers::timers.list", compact(['currentTime']));
+
+    }
+
+    /**
+     * Show new timer form
+     * @return \Illuminate\Contracts\Foundation\Application
+     */
+    public function create(){
+        $types = TimerTypes::all();
+        return view('timers::timers.add', compact('types'));
     }
 
     /**
@@ -43,7 +58,13 @@ class TimersController extends Controller
         }
 
         $timer = new Timer(array_merge($timer, ['datetime'=>$datetime]));
-        //dd($timer->toArray());
+
         $timer->save();
+
+        if($request->get('add_another', false)){
+            return response()->redirectToRoute('timers.create');
+        }
+
+        return response()->redirectToRoute('timers.view');
     }
 }

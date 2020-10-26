@@ -22,6 +22,7 @@ class SeatTimersServiceProvider extends AbstractSeatPlugin
         $this->add_migrations();
         $this->add_publications();
         $this->registerObservers();
+
     }
 
     /**
@@ -40,7 +41,7 @@ class SeatTimersServiceProvider extends AbstractSeatPlugin
         );
 
         $this->registerPermissions(__DIR__.'/Config/Permissions/timers.permissions.php', 'timers');
-        $this->registerPermissions(__DIR__.'/Config/Permissions/timer-types.permissions.php', 'timers Types');
+        $this->registerPermissions(__DIR__.'/Config/Permissions/timer-types.permissions.php', 'timertypes');
 
         //dd(config('package.sidebar'));
     }

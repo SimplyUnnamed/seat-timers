@@ -5,7 +5,7 @@ return [
             'label' => "View Timers",
             'description' => "view upcoming timers"
         ],
-        'add' => [
+        'store' => [
             'label' => "Add Timer",
             'description' => "Add timers"
         ],
